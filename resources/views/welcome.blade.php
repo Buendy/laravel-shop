@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', 'Bienvenido a Laravel-Shop')
 @section('body-class', 'landing-page sidebar-collapse')
 
 @section('content')
@@ -7,8 +7,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <h1 class="title">Your Story Starts With Us.</h1>
-                    <h4>Every landing page needs a small description after the big bold title, that&apos;s why we added this text here. Add here all the information that can make you or your product create the first impression.</h4>
+                    <h1 class="title">Bienvenido a Shop Laravel</h1>
+                    <h4>Aquí verás un proyecto de laravel realizado en clase a partir de un proyecto mítico de carlicos. Si fuera hecho por mí sería un proyecto un poco pocho claramente</h4>
                     <br>
                     <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="btn btn-danger btn-raised btn-lg">
                         <i class="fa fa-play"></i> Watch video
@@ -59,74 +59,34 @@
                 </div>
             </div>
             <div class="section text-center">
-                <h2 class="title">Here is our team</h2>
+                <h2 class="title">Productos disponibles</h2>
                 <div class="team">
                     <div class="row">
-                        <div class="col-md-4">
-                            <div class="team-player">
-                                <div class="card card-plain">
-                                    <div class="col-md-6 ml-auto mr-auto">
-                                        <img src="{{ asset('img/faces/avatar.jpg') }}" alt="Thumbnail Image" class="img-raised rounded-circle img-fluid">
-                                    </div>
-                                    <h4 class="card-title">Gigi Hadid
-                                        <br>
-                                        <small class="card-description text-muted">Model</small>
-                                    </h4>
-                                    <div class="card-body">
-                                        <p class="card-description">You can write here details about one of your team members. You can give more details about what they do. Feel free to add some
-                                            <a href="#">links</a> for people to be able to follow them outside the site.</p>
-                                    </div>
-                                    <div class="card-footer justify-content-center">
-                                        <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-twitter"></i></a>
-                                        <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-instagram"></i></a>
-                                        <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-facebook-square"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="team-player">
-                                <div class="card card-plain">
-                                    <div class="col-md-6 ml-auto mr-auto">
-                                        <img src="{{ asset('img/faces/christian.jpg') }}" alt="Thumbnail Image" class="img-raised rounded-circle img-fluid">
-                                    </div>
-                                    <h4 class="card-title">Christian Louboutin
-                                        <br>
-                                        <small class="card-description text-muted">Designer</small>
-                                    </h4>
-                                    <div class="card-body">
-                                        <p class="card-description">You can write here details about one of your team members. You can give more details about what they do. Feel free to add some
-                                            <a href="#">links</a> for people to be able to follow them outside the site.</p>
-                                    </div>
-                                    <div class="card-footer justify-content-center">
-                                        <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-twitter"></i></a>
-                                        <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-linkedin"></i></a>
+                        @foreach($products as $product)
+                            <div class="col-md-4">
+                                <div class="team-player">
+                                    <div class="card card-plain">
+                                        <div class="col-md-6 ml-auto mr-auto">
+                                            <img src="{{ $product->images()->first()->image }}" alt="Thumbnail Image" class="img-raised rounded-circle img-fluid">
+                                        </div>
+                                        <h4 class="card-title">{{ $product->name }}
+                                            <br>
+                                            <small class="card-description text-muted">{{ $product->category->name }}</small>
+                                        </h4>
+                                        <div class="card-body">
+                                            <p class="card-description">
+                                                {{ $product->description }}
+                                            </p>
+                                        </div>
+                                        <div class="card-footer justify-content-center">
+                                            <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-twitter"></i></a>
+                                            <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-instagram"></i></a>
+                                            <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-facebook-square"></i></a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="team-player">
-                                <div class="card card-plain">
-                                    <div class="col-md-6 ml-auto mr-auto">
-                                        <img src="{{ asset('img/faces/kendall.jpg') }}" alt="Thumbnail Image" class="img-raised rounded-circle img-fluid">
-                                    </div>
-                                    <h4 class="card-title">Kendall Jenner
-                                        <br>
-                                        <small class="card-description text-muted">Model</small>
-                                    </h4>
-                                    <div class="card-body">
-                                        <p class="card-description">You can write here details about one of your team members. You can give more details about what they do. Feel free to add some
-                                            <a href="#">links</a> for people to be able to follow them outside the site.</p>
-                                    </div>
-                                    <div class="card-footer justify-content-center">
-                                        <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-twitter"></i></a>
-                                        <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-instagram"></i></a>
-                                        <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-facebook-square"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                            @endforeach
                     </div>
                 </div>
             </div>

@@ -12,9 +12,14 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $products = \App\Product::all();
+    return view('welcome', compact('products'));
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/admin/products', 'ProductController@index');
+Route::get('/admin/products/create', 'ProductController@create');
+Route::post('/admin/products', 'ProductController@store');
