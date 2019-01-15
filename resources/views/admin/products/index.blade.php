@@ -23,6 +23,7 @@
                 <h2 class="title">Productos disponibles</h2>
                 <div class="team">
                     <div class="row">
+                        <a href="{{url('admin/products/create')}}" class="btn btn-primary btn-round ">Nuevo producto</a>
                         <table class="table">
                             <thead>
                             <tr>
@@ -43,15 +44,15 @@
                                 <td class="text-right">{{$product->price}}&euro;</td>
                                 <td class="text-center">
                                     <button type="button" rel="tooltip" title="Ver producto"
-                                            class="btn btn-info">
+                                            class="btn btn-info btn-sm">
                                         <i class="fa fa-info"></i>
                                     </button>
                                     <button type="button" rel="tooltip" title="Editar producto"
-                                            class="btn btn-info btn-success">
+                                            class="btn btn-info btn-success btn-sm">
                                         <i class="fa fa-edit"></i>
                                     </button>
                                     <button type="button" rel="tooltip" title="Eliminar"
-                                            class="btn btn-danger btn-simple">
+                                            class="btn btn-danger btn-simple btn-sm">
                                         <i class="fa fa-times"></i>
                                     </button>
                                 </td>
@@ -61,43 +62,12 @@
 
                         @endforeach
                         </table>
+                        {{$products->links()}}
                     </div>
                 </div>
             </div>
             <div class="section section-contacts">
-                <div class="row">
-                    <div class="col-md-8 ml-auto mr-auto">
-                        <h2 class="text-center title">Work with us</h2>
-                        <h4 class="text-center description">Divide details about your product or agency work into parts. Write a few lines about each one and contact us about any further collaboration. We will responde get back to you in a couple of hours.</h4>
-                        <form class="contact-form">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="bmd-label-floating">Your Name</label>
-                                        <input type="email" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="bmd-label-floating">Your Email</label>
-                                        <input type="email" class="form-control">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleMessage" class="bmd-label-floating">Your Message</label>
-                                <textarea type="email" class="form-control" rows="4" id="exampleMessage"></textarea>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-4 ml-auto mr-auto text-center">
-                                    <button class="btn btn-primary btn-raised">
-                                        Send Message
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+
             </div>
         </div>
     </div>
