@@ -14,6 +14,12 @@ class CategoryTableSeeder extends Seeder
         $categories = factory(\App\Category::class, 10)->create();
         $categories->each(function($c){
             $products = factory(\App\Product::class, 20)->make();
+            $c->products()->saveMany($products);
+            $products->each(function($p){
+               $images = factory(\App\ProductImage::class, 5)->make();
+               $p->images()->saveMany($images);
+            });
+
         });
     }
 }
