@@ -20,6 +20,20 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
+
+        $this->validate($request, [
+           'name' => 'required | min:3',
+            'price' => 'required | numeric | min:0',
+            'description' => 'required | max:200'
+        ], [
+            'name.required' => 'El nombre es obligatorio',
+            'name.min' => 'El nombre debe tener al menos 3 caráteres',
+            'price.required' => 'El precio es obligatorio',
+            'price.min' => 'El precio mínimo es 0',
+            'description.required' => 'La descripción es obligatoria',
+
+
+        ]);
         $product = new Product();
         $product->name = $request->input('name');
         $product->description = $request->input('description');
@@ -38,6 +52,20 @@ class ProductController extends Controller
 
     public function update(Request $request, Product $product)
     {
+        $this->validate($request, [
+            'name' => 'required | min:3',
+            'price' => 'required | numeric | min:0',
+            'description' => 'required | max:200 | min:10',
+
+        ], [
+            'name.required' => 'El nombre es obligatorio',
+            'name.min' => 'El nombre debe tener al menos 3 caráteres',
+            'price.required' => 'El precio es obligatorio',
+            'price.min' => 'El precio mínimo es 0',
+            'description.required' => 'La descripción es obligatoria',
+
+
+        ]);
         //$product = Product::find($id);
         $product->name = $request->input('name');
         $product->description = $request->input('description');
