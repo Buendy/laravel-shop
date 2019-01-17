@@ -40,17 +40,17 @@
                                 <td class="text-center">{{ $product->id }}</td>
                                 <td>{{$product->name}}</td>
                                 <td class="col-4">{{$product->description}}</td>
-                                <td>{{$product->category->name}}</td>
+                                <td>{{ $product->category ? $product->category->name : 'General'}}</td>
                                 <td class="text-right">{{$product->price}}&euro;</td>
                                 <td class="text-center">
                                     <button type="button" rel="tooltip" title="Ver producto"
                                             class="btn btn-info btn-sm">
                                         <i class="fa fa-info"></i>
                                     </button>
-                                    <button type="button" rel="tooltip" title="Editar producto"
-                                            class="btn btn-info btn-success btn-sm">
+                                    <a href="{{url('/admin/products/' . $product->id . '/edit')}}"
+                                       rel="tooltip" title="Editar producto" class="btn btn-info btn-success btn-sm">
                                         <i class="fa fa-edit"></i>
-                                    </button>
+                                    </a>
                                     <button type="button" rel="tooltip" title="Eliminar"
                                             class="btn btn-danger btn-simple btn-sm">
                                         <i class="fa fa-times"></i>
