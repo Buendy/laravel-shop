@@ -47,4 +47,10 @@ class ProductController extends Controller
         return redirect('/admin/products');
 
     }
+
+    public function destroy(Product $product)
+    {
+        $product->delete();
+        return redirect('/admin/products');
+    }
 }

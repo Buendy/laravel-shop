@@ -51,10 +51,15 @@
                                        rel="tooltip" title="Editar producto" class="btn btn-info btn-success btn-sm">
                                         <i class="fa fa-edit"></i>
                                     </a>
-                                    <button type="button" rel="tooltip" title="Eliminar"
-                                            class="btn btn-danger btn-simple btn-sm">
-                                        <i class="fa fa-times"></i>
-                                    </button>
+                                    <form action="{{url('/admin/products/' . $product->id)}}" method="post" class="d-inline-block">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" rel="tooltip" title="Eliminar"
+                                                class="btn btn-danger btn-simple btn-sm">
+                                            <i class="fa fa-times"></i>
+                                        </button>
+
+                                    </form>
                                 </td>
                             </tr>
 
