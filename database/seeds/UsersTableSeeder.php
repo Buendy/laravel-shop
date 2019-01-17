@@ -1,4 +1,4 @@
-<?php
+ma<?php
 
 use Illuminate\Database\Seeder;
 
@@ -14,7 +14,8 @@ class UsersTableSeeder extends Seeder
         factory(\App\User::class, 1)->create([
             'name'  => 'Carlos',
             'email' =>  'iescierva.carlos@gmail.com',
-            'password'  => bcrypt('123456')
+            'password'  => bcrypt('123456'),
+            'admin' => true
         ]);
 
         factory(\App\User::class, 10)->create();
