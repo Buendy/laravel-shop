@@ -20,7 +20,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::middleware(['auth','admin'])->prefix('admin')->group( function(){
+Route::get('/products/{product}', 'ProductController@show');
+
+Route::middleware(['auth','admin'])->prefix('admin')->namespace('Admin')->group( function(){
     Route::get('/products', 'ProductController@index');
     Route::get('/products/create', 'ProductController@create');
     Route::post('/products', 'ProductController@store');
@@ -32,9 +34,6 @@ Route::middleware(['auth','admin'])->prefix('admin')->group( function(){
     Route::post('/products/{product}/images', 'ImageController@store');
     Route::delete('/products/{product}/images/{product_image}', 'ImageController@destroy');
     Route::post('/products/{product}/images/{product_image}', 'ImageController@select');
-
-
-
 
 });
 
