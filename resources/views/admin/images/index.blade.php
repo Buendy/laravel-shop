@@ -28,6 +28,11 @@
                         <div class="col-4">
                             <div class="card">
                                 <img src="{{$image->url}}" alt="Card image cap" class="card-img-top">
+                                <form action="{{url('/admin/products/'. $image->product_id . '/images/' . $image->id)}}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-danger btn-round">Eliminar imagen</button>
+                                </form>
                             </div>
                         </div>
 

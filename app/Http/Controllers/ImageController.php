@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Product;
 use App\ProductImage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class ImageController extends Controller
 {
@@ -34,6 +35,17 @@ class ImageController extends Controller
 
     public function destroy(Product $product, ProductImage $product_image)
     {
+        if(substr($product_image->image,0,4) == 'http' ){
+            $deleted = true;
+        }else{
+            $fullPath = public_path() . '/images/products/' . $product_image->image;
+            $deleted = File::delete($fullPath);
+        }
+
+        if($deleted){
+            $product_image->delete();
+        }
+        return redirect()->back();
 
     }
 }
