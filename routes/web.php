@@ -28,5 +28,9 @@ Route::middleware(['auth','admin'])->prefix('admin')->group( function(){
     Route::put('/products/{product}', 'ProductController@update');
     Route::delete('/products/{product}', 'ProductController@destroy');
 
+    Route::get('/products/{product}/images', 'ImageController@index');
+    Route::post('/producst/{product}/images', 'ImageController@store');
+    Route::delete('/products/{product}/images/{product_image}', 'ImageController@destroy');
+
 });
 

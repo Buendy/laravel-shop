@@ -28,9 +28,9 @@
                             <thead>
                             <tr>
                                 <th class="text-center">#</th>
-                                <th>Nombre</th>
-                                <th>Descripción</th>
-                                <th>Categoría</th>
+                                <th class="col-md-2 text-center">Nombre</th>
+                                <th class="col-md-4 text-center">Descripción</th>
+                                <th class="text-center">Categoría</th>
                                 <th class="text-center">Precio</th>
                                 <th class="text-center">Opciones</th>
                             </tr>
@@ -43,14 +43,15 @@
                                 <td>{{ $product->category ? $product->category->name : 'General'}}</td>
                                 <td class="text-right">{{$product->price}}&euro;</td>
                                 <td class="text-center">
-                                    <button type="button" rel="tooltip" title="Ver producto"
+                                    <a href="#" rel="tooltip" title="Ver producto"
                                             class="btn btn-info btn-sm">
                                         <i class="fa fa-info"></i>
-                                    </button>
+                                    </a>
                                     <a href="{{url('/admin/products/' . $product->id . '/edit')}}"
                                        rel="tooltip" title="Editar producto" class="btn btn-info btn-success btn-sm">
                                         <i class="fa fa-edit"></i>
                                     </a>
+                                    <a href="{{url('/admin/products/' . $product->id . '/images')}}" rel="tooltip" title="Imágenes del producto" class="btn btn-warning btn-simple btn-sm"><i class="fa fa-image"></i></a>
                                     <form action="{{url('/admin/products/' . $product->id)}}" method="post" class="d-inline-block">
                                         @csrf
                                         @method('DELETE')
