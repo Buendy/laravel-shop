@@ -27,7 +27,7 @@
                     @foreach($images as $image)
                         <div class="col-4">
                             <div class="card">
-                                <img src="{{$image->image}}" alt="Card image cap" class="card-img-top">
+                                <img src="{{$image->url}}" alt="Card image cap" class="card-img-top">
                             </div>
                         </div>
 
