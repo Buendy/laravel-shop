@@ -11,7 +11,7 @@ class ImageController extends Controller
 {
     public function index(Product $product)
     {
-        $images = $product->images;
+        $images = $product->images()->orderBy('featured', 'DESC')->get();
         return view('admin.images.index', compact('images', 'product'));
     }
 
@@ -45,6 +45,15 @@ class ImageController extends Controller
         if($deleted){
             $product_image->delete();
         }
+        return redirect()->back();
+
+    }
+
+    public function select(Product $product, ProductImage $productImage)
+    {
+        $product->images()->update(['featured' => false]);
+        $productImage->featured = true;
+        $productImage->save();
         return redirect()->back();
 
     }

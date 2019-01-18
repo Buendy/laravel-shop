@@ -34,6 +34,22 @@
                                     <button class="btn btn-danger btn-round">Eliminar imagen</button>
                                 </form>
                             </div>
+                            <div class="col-4 justify-content-center">
+                                @if($image->featured)
+                                    <button type="button" class="btn btn-danger btn-fab btn-round">
+                                        <i class="material-icons">favorite</i>
+                                    </button>
+
+                                @else
+                                    <form action="{{url('admin/products/' . $product->id . '/images/' . $image->id)}}" method="post">
+                                        @csrf
+                                        <button type="submit" class="btn btn-default btn-fab btn-round">
+                                            <i class="material-icons">favorite</i>
+                                        </button>
+
+                                    </form>
+                                @endif
+                            </div>
                         </div>
 
 
