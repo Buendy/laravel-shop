@@ -48,10 +48,14 @@
                         </a>
 
                         <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" role="menu">
+
                             @if(auth()->user()->admin)
                                <li><a href="{{url('/admin/products')}}">Gestionar productos</a></li>
 
                                 @endif
+                                <li>
+                                    <a href="{{ url('/home') }}">Panel de control</a>
+                                </li>
                                 <li>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
