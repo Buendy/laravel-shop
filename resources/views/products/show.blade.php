@@ -27,6 +27,11 @@
                 <div class="description text-center">
                     <p>{{$product->long_description}}</p>
                 </div>
+                <div class="text-center">
+                    <button class="btn btn-primary btn-round" data-toggle="modal" data-target="#modalAddToCart">
+                        <i class="fa fa-cart-plus"></i> BUY
+                    </button>
+                </div>
                 <div class="row">
                     <div class="col-md-6 ml-auto mr-auto">
 
@@ -54,6 +59,8 @@
             </div>
         </div>
     </div>
+
+@include('partials.add_to_cart')
 
 
     @include('partials.footer')
