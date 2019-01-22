@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    $products = \App\Product::all();
+    $products = \App\Product::paginate(9);
     return view('welcome', compact('products'));
 });
 
