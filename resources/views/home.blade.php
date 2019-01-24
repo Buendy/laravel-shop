@@ -14,8 +14,8 @@
             <div class="section">
                 <h2 class="title text-center">Dashboard</h2>
                 @if(session('status'))
-                    <div class="alert alert-success" rol="alert"></div>
-                    {{ session('status') }}
+                    <div class="alert alert-success" role="alert"> {{ session('status') }}</div>
+
                 @endif
                 <ul class="nav nav-pills nav-pills-icons" role="tablist">
                     <li class="nav-item">
@@ -43,7 +43,7 @@
                         <th class="text-center">Price</th>
                         <th class="text-center">Quantity</th>
                         <th class="text-center">Total</th>
-                        <th class="text-center" rowspan="2">Options</th>
+                        <th class="text-center">Options</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -75,6 +75,14 @@
                     @endforeach
                     </tbody>
                 </table>
+                <div class="text-center">
+                    <form action="{{url('/order')}}" method="post">
+                        @csrf
+                        <button class="btn btn-primary btn-round">
+                            <i class="material-icons">done</i> Realizar pedido
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

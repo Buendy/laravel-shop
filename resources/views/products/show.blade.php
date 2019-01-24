@@ -12,6 +12,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 ml-auto mr-auto">
+
                         <div class="profile">
                             <div class="avatar">
                                 <img src="{{$product->featured_image_url}}" alt="Circle Image" class="img-raised rounded-circle img-fluid">
@@ -31,6 +32,10 @@
                     <button class="btn btn-primary btn-round" data-toggle="modal" data-target="#modalAddToCart">
                         <i class="fa fa-cart-plus"></i> BUY
                     </button>
+                    @if(session('status'))
+                        <div class="alert alert-success" role="alert"> {{ session('status') }}</div>
+
+                    @endif
                 </div>
                 <div class="row">
                     <div class="col-md-6 ml-auto mr-auto">
