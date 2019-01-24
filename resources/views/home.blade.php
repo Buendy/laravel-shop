@@ -40,10 +40,10 @@
                     <tr>
                         <th class="text-center">#</th>
                         <th class="col-md-2 text-center">Name</th>
-                        <th class="text-right">Price</th>
-                        <th class="text-right">Quantity</th>
-                        <th class="text-right">Total</th>
-                        <th class="text-center">Options</th>
+                        <th class="text-center">Price</th>
+                        <th class="text-center">Quantity</th>
+                        <th class="text-center">Total</th>
+                        <th class="text-center" rowspan="2">Options</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -57,7 +57,7 @@
                            </td>
                            <td class="text-center">{{$detail->quantity}}</td>
                            <td class="text-center">{{$detail->quantity * $detail->product->price}}</td>
-                           <td class="text-right">{{$detail->product->price}}&euro;</td>
+                           <td class="text-center">{{$detail->product->price}}&euro;</td>
                            <td class="td-actions text-center">
                                <a href="{{url('/products/' . $detail->product->id)}}" target="_blank" rel="tooltip" title="Show product" class="btn btn-info btn-sm">
                                    <i class="fa fa-info"></i>
