@@ -57,6 +57,9 @@
                                     <a href="{{ url('/home') }}">Panel de control</a>
                                 </li>
                                 <li>
+                                    <a href="{{ url('/admin/categories') }}">Gestionar categorias</a>
+                                </li>
+                                <li>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
