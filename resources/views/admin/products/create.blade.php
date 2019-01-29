@@ -40,12 +40,24 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-sm-12">
+                        <div class="col-sm-6">
                             <div class="form-group bmd-label-floating">
                                 <label class="control-label">Descripción corta</label>
                                 <input type="text" class="form-control" name="description" value="{{old('description')}}">
                             </div>
                         </div>
+                        <div class="col-sm-6">
+                            <div class="form-group bmd-label-floating">
+                                <label class="control-label">Categoría del producto</label>
+                                <select name="category_id" class="form-control">
+                                    <option value="0">General</option>
+                                    @foreach($categories as $category)
+                                        <option value="{{$category->id}}">{{$category->name}}</option>
+                                        @endforeach
+                                </select>
+                            </div>
+                        </div>
+
                     </div>
                     <div class="row">
                         <textarea name="long_description" cols="130" rows="5"

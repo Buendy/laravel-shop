@@ -40,11 +40,11 @@
                                 <td class="text-center">{{ $product->id }}</td>
                                 <td>{{$product->name}}</td>
                                 <td class="col-4">{{$product->description}}</td>
-                                <td>{{ $product->category ? $product->category->name : 'General'}}</td>
+                                <td>{{$product->category_name}}</td>
                                 <td class="text-right">{{$product->price}}&euro;</td>
                                 <td class="text-center">
-                                    <a href="#" rel="tooltip" title="Ver producto"
-                                            class="btn btn-info btn-sm">
+                                    <a href="{{url('/products/'. $product->id)}}" rel="tooltip" title="Ver producto"
+                                            class="btn btn-info btn-sm" target="_blank">
                                         <i class="fa fa-info"></i>
                                     </a>
                                     <a href="{{url('/admin/products/' . $product->id . '/edit')}}"

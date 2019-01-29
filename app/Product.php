@@ -25,4 +25,12 @@ class Product extends Model
 
         return($image ? $image->url : '/images/products/default.jpg');
     }
+
+    public function getCategoryNameAttribute()
+    {
+        if($this->category){
+            return $this->category->name;
+        }
+        return 'General';
+    }
 }
