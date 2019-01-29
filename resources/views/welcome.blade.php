@@ -1,5 +1,7 @@
 @extends('layouts.app')
-@section('title', 'Bienvenido a Laravel-Shop')
+
+@section('title', 'Bienvenido a IESCierva Online')
+
 @section('body-class', 'landing-page sidebar-collapse')
 
 @section('content')
@@ -7,11 +9,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <h1 class="title">Bienvenido a Shop Laravel</h1>
-                    <h4>Aquí verás un proyecto de laravel realizado en clase a partir de un proyecto mítico de carlicos. Si fuera hecho por mí sería un proyecto un poco pocho claramente</h4>
+                    <h1 class="title">Bienvenido a IESCierva Store</h1>
+                    <h4>Aquí podrás encontrar cualquier producto informático que necesites. Busca, compara y si encuentras otro sitio mejor, negociamos.</h4>
                     <br>
                     <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="btn btn-danger btn-raised btn-lg">
-                        <i class="fa fa-play"></i> Watch video
+                        <i class="fa fa-play"></i> ¿Cómo funciona?
                     </a>
                 </div>
             </div>
@@ -59,38 +61,37 @@
                 </div>
             </div>
             <div class="section text-center">
-                <h2 class="title">Productos disponibles</h2>
+                <h2 class="title">Categorías Disponibles</h2>
+                <div class="offset-5">
+                    <form class="form-inline" method="get" action="{{ url('/search') }}">
+                        <input type="text" placeholder="¿Qué buscas?" class="form-control"
+                               name="query"
+                        >
+                        <button type="submit" class="btn btn-primary btn-just-icon">
+                            <i class="material-icons">search</i>
+                        </button>
+                    </form>
+                </div>
                 <div class="team">
                     <div class="row">
-                        @foreach($products as $product)
+                        @foreach($categories as $category)
                             <div class="col-md-4">
-                                <div class="team-player">
-
+                                <div class="card card-plain team-player">
                                     <div class="col-md-6 ml-auto mr-auto">
-                                        <img src="{{ $product->featured_image_url}}" alt="Thumbnail Image" class="img-raised rounded-circle img-fluid">
+                                        <img src="{{ $category->featured_image_url }}" alt="Thumbnail Image"
+                                             class="img-raised rounded-circle img-fluid">
                                     </div>
                                     <h4 class="card-title">
-                                        <a href="{{url('/products/' . $product->id)}}">{{ $product->name }}</a>
-                                        <br>
-                                        <small class="card-description text-muted">{{ $product->category_name }}</small>
+                                        <a href="{{ url('/categories/' . $category->id) }}">{{ $category->name }}</a>
                                     </h4>
                                     <div class="card-body">
                                         <p class="card-description">
-                                            {{ $product->description }}
+                                            {{ $category->description }}
                                         </p>
                                     </div>
-                                    <div class="card-footer justify-content-center">
-                                        <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-twitter"></i></a>
-                                        <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-instagram"></i></a>
-                                        <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fa fa-facebook-square"></i></a>
-                                    </div>
                                 </div>
-
                             </div>
                         @endforeach
-                    </div>
-                    <div class="row justify-content-center">
-                        {{$products->links()}}
                     </div>
                 </div>
             </div>
@@ -131,5 +132,6 @@
             </div>
         </div>
     </div>
+
     @include('partials.footer')
 @endsection
